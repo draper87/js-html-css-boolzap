@@ -208,11 +208,17 @@ span {
 .tonotshow {
   display: none;
 }
-.template {
+.template.white {
   display: flex;
   justify-content: flex-start;
+  padding: 5px 0;
 }
-.template p.white {
+.template.greeny {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0;
+}
+.template.white p {
   margin-left: 10px;
   padding: 15px;
   background: white;
@@ -226,7 +232,7 @@ span {
   bottom: -12px;
   right: -30px;
 }
-.template p.greeny {
+.template.greeny p {
   margin-right: 10px;
   padding: 15px;
   background: #d5f9ba;

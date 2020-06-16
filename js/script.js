@@ -3,11 +3,15 @@ $(document).ready(function() {
 
   $(document).on('click', '.send i',
     function() {
-      var template = $('.template.greeny p').clone();
+      var template = $('.modello p').clone();
       var mioValore = $('.text input').val();
-      template.children('p').prepend(mioValore);
-      $('.main-chat').append(template);
+      var orario = new Date();
+      var ora = orario.getHours();
+      var minuti = orario.getMinutes();
+      // template.prepend(mioValore);
+      $('.main-chat').append('<div class="template greeny"><p class="greeny">' + mioValore + '<span>' + ora + ':' + minuti + '</span></p></div>');
       $('input').val('');
+      
     }
   )
 
