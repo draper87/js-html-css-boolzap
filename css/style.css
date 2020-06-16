@@ -24,6 +24,7 @@ img {
 }
 i {
   font-size: 1.5em;
+  cursor: pointer;
 }
 a {
   color: #b1b1b1;
@@ -74,10 +75,24 @@ a {
 }
 .find {
   background: #eaeaea;
-  height: 40px;
+  height: 50px;
+  padding: 5px;
+}
+.find-wrapper {
+  background: white;
+}
+.find i {
+  line-height: 40px;
+  padding: 0 10px;
+  background-color: white;
+}
+.find input {
+  font-size: 1em;
+  width: 80%;
+  border: 0;
 }
 .contatti {
-  height: calc(100% - 180px);
+  height: calc(100% - 190px);
   background: white;
 }
 .avatar {
@@ -90,10 +105,10 @@ a {
   padding: 10px 0;
   padding-left: 15px;
 }
-.left-nav ul {
+.right-nav ul {
   padding-right: 10px;
 }
-.left-nav ul li {
+.right-nav ul li {
   display: inline-block;
   line-height: 70px;
   padding: 0 10px;
@@ -148,6 +163,7 @@ p {
 span {
   color: #878d8f;
 }
+
 /* RIGHT COLUMN */
 .header-chat {
   background-color: #eaeaea;
@@ -169,8 +185,58 @@ span {
   width: 100%;
   height: 40px;
   line-height: 70px;
+  border: 0;
+  border-radius: 5px;
+}
+.write-chat i {
+  color: #878d8f;
+}
+.smile {
+  padding-left: 10px;
+}
+.send {
+  padding-right: 10px;
 }
 .main-chat {
   height: calc(100% - 140px);
   background-image: url(../img/mine.jpg);
+  padding: 50px;
+  overflow-y: scroll;
+}
+
+/* TEMPLATE */
+.tonotshow {
+  display: none;
+}
+.template {
+  display: flex;
+  justify-content: flex-start;
+}
+.template p.white {
+  margin-left: 10px;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  color: black;
+}
+.template span {
+  padding: 0 20px;
+  font-size: 0.8em;
+  position: relative;
+  bottom: -12px;
+  right: -30px;
+}
+.template p.greeny {
+  margin-right: 10px;
+  padding: 15px;
+  background: #d5f9ba;
+  border-radius: 5px;
+  color: black;
+}
+.template span {
+  padding: 0 20px;
+  font-size: 0.8em;
+  position: relative;
+  bottom: -12px;
+  right: -30px;
 }
