@@ -3,15 +3,17 @@ $(document).ready(function() {
 
   $(document).on('click', '.send i',
     function() {
-      // var template = $('.modello p').clone();
+      var template = $('.tonotshow .messaggio').clone();
       var mioValore = $('.text input').val();
       var orario = new Date();
       var ora = orario.getHours();
       var minuti = orario.getMinutes();
-      // template.prepend(mioValore);
-      $('.main-chat').append('<div class="template greeny"><p class="greeny">' + mioValore + '<span>' + ora + ':' + minuti + '</span></p></div>');
+      template.children('p').prepend(mioValore);
+      template.find('span').text(ora + ':' + minuti);
+      template.addClass('greeny');
+      $('.main-chat').append(template);
+      // $('.main-chat').append('<div class="template greeny"><p class="greeny">' + mioValore + '<span>' + ora + ':' + minuti + '</span></p></div>');
       $('input').val('');
-
     }
   )
 

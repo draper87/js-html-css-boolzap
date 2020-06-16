@@ -94,6 +94,7 @@ a {
 .contatti {
   height: calc(100% - 190px);
   background: white;
+  overflow-y: hidden;
 }
 .avatar {
   float: left;
@@ -218,6 +219,7 @@ span {
   justify-content: flex-end;
   padding: 5px 0;
 }
+
 .template.white p {
   margin-left: 10px;
   padding: 15px;
@@ -240,6 +242,25 @@ span {
   color: black;
 }
 .template span {
+  padding: 0 20px;
+  font-size: 0.8em;
+  position: relative;
+  bottom: -12px;
+  right: -30px;
+}
+.messaggio.greeny {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0;
+}
+.messaggio.greeny p {
+  margin-right: 10px;
+  padding: 15px;
+  background: #d5f9ba;
+  border-radius: 5px;
+  color: black;
+}
+.messaggio.greeny p span {
   padding: 0 20px;
   font-size: 0.8em;
   position: relative;
