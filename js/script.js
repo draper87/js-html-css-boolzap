@@ -13,6 +13,16 @@ $(document).ready(function() {
       template.addClass('greeny');
       $('.main-chat').append(template);
       $('input').val('');
+
+      // Ottengo 'Ok' come risposta ogni volta che scrivo qualcosa in chat
+      setTimeout(function() {
+        var templateWhite = $('.tonotshow .messaggio').clone();
+        var valoreWhite = 'ok';
+        templateWhite.children('p').prepend(valoreWhite);
+        templateWhite.find('span').text(ora + ':' + minuti);
+        templateWhite.addClass('white');
+        $('.main-chat').append(templateWhite);
+      }, 1000);
     }
   )
 
@@ -28,7 +38,18 @@ $(document).ready(function() {
       template.addClass('greeny');
       $('.main-chat').append(template);
       $('input').val('');
+
+      setTimeout(function() {
+        var templateWhite = $('.tonotshow .messaggio').clone();
+        var valoreWhite = 'ok';
+        templateWhite.children('p').prepend(valoreWhite);
+        templateWhite.find('span').text(ora + ':' + minuti);
+        templateWhite.addClass('white');
+        $('.main-chat').append(templateWhite);
+      }, 1000);
+
     }
+
   })
 
 })

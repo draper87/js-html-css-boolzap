@@ -29,10 +29,20 @@ i {
 a {
   color: #b1b1b1;
 }
+h4 {
+  padding-bottom: 2px;
+}
+p {
+  color: #878d8f;
+}
+span {
+  color: #878d8f;
+}
 .wrapper {
   height: 100vh;
   width: 100%;
   position: relative;
+  min-width: 900px;
 }
 .green {
   background-color: #009688;
@@ -42,6 +52,8 @@ a {
   height: calc(100% - 100px);
   background-color: #d8dbd6;
 }
+
+/* REGOLE WEBAPP */
 .webapp {
   position: absolute;
   width: 80%;
@@ -56,12 +68,14 @@ a {
   height: 100%;
 }
 .left {
-  flex-basis: 400px;
+  width: 35%;
+  min-width: 300px;
 }
 .right {
-  flex-basis: calc(100% - 400px);
+  width: 65%;
 }
 /* LEFT COLUMN */
+/* Profilo */
 .profilo {
   background-color: #eaeaea;
   height: 70px;
@@ -69,55 +83,22 @@ a {
   justify-content: space-between;
   border-right: 1px solid #b1b1b1;
 }
-.notifiche {
-  background-color: #8edafc;
-  height: 70px;
-}
-.find {
-  background: #eaeaea;
-  height: 50px;
-  padding: 5px;
-}
-.find-wrapper {
-  background: white;
-}
-.find i {
-  line-height: 40px;
-  padding: 0 10px;
-  background-color: white;
-}
-.find input {
-  font-size: 1em;
-  width: 80%;
-  border: 0;
-}
-.contatti {
-  height: calc(100% - 190px);
-  background: white;
-  overflow-y: hidden;
-}
 .avatar {
-  float: left;
   height: 100%;
   padding: 5px 0;
   padding-left: 8px;
 }
-.contatti .contatto .avatar {
-  padding: 10px 0;
-  padding-left: 15px;
-}
-.right-nav ul {
-  padding-right: 10px;
-}
-.right-nav ul li {
-  display: inline-block;
-  line-height: 70px;
-  padding: 0 10px;
+
+/* Notifiche */
+.notifiche {
+  background-color: #8edafc;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .bell {
-  float: left;
-  padding-left: 20px;
-  padding-top: 10px;
+  padding-left: 15px;
 }
 .bell i {
   color: #8edafc;
@@ -129,25 +110,66 @@ a {
   border-radius: 50%;
 }
 .notifiche-text {
-  float: right;
-  padding: 15px 70px 0 0;
+  width: 82%;
+}
+
+/* Finder */
+.find {
+  width: 100%;
+  background: #eaeaea;
+  height: 50px;
+  padding: 10px;
+}
+.find-wrapper {
+  background: white;
+  height: 100%;
+}
+.find label {
+  background-color: white;
+  width: 60px;
+  display: inline-block;
+  text-align: center;
+}
+.find i {
+  font-size: 1em;
+}
+.find input {
+  width: calc(100% - 67px);
+  height: 100%;
+  border: 0;
+}
+
+/* Contatti */
+.contatti {
+  height: calc(100% - 190px);
+  background: white;
+  overflow-y: hidden;
+}
+.contatti .contatto .avatar {
+  padding-left: 5px;
+}
+.right-nav ul {
+  padding-right: 10px;
+}
+.right-nav ul li {
+  display: inline-block;
+  line-height: 70px;
+  padding: 0 10px;
 }
 .contatto {
   height: 70px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .contatti .contatto {
   height: 78px;
-}
-.contatti .contatto {
   border-bottom: 1px solid #eaeaea;
 }
 .contatto-nome {
-  float: left;
-  padding: 15px 220px 0 15px;
   position: relative;
-}
-.contatti .contatto-nome {
-  padding: 19px 220px 0 15px;
+  width: 80%;
+  margin-left: 8px;
 }
 .contatto-nome span {
   font-size: 0.8em;
@@ -155,23 +177,32 @@ a {
   right: 5%;
   top: 40%;
 }
-h4 {
-  padding-bottom: 2px;
-}
-p {
-  color: #878d8f;
-}
-span {
-  color: #878d8f;
-}
+
 
 /* RIGHT COLUMN */
+/* Header chat */
 .header-chat {
   background-color: #eaeaea;
   height: 70px;
   display: flex;
   justify-content: space-between;
 }
+
+/* Main chat */
+.main-chat {
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
+  padding: 50px;
+  overflow-y: scroll;
+}
+.single-chat {
+  display: none;
+}
+.single-chat.active {
+  display: block;
+}
+
+/* Write Chat */
 .write-chat {
   background-color: #f3eeea;
   height: 70px;
@@ -198,12 +229,7 @@ span {
 .send {
   padding-right: 10px;
 }
-.main-chat {
-  height: calc(100% - 140px);
-  background-image: url(../img/mine.jpg);
-  padding: 50px;
-  overflow-y: scroll;
-}
+
 
 /* TEMPLATE */
 .tonotshow {
@@ -219,12 +245,11 @@ span {
   justify-content: flex-end;
   padding: 5px 0;
 }
-
 .template.white p {
   margin-left: 10px;
   padding: 15px;
   background: white;
-  border-radius: 5px;
+  border-radius: 8px;
   color: black;
 }
 .template span {
@@ -238,7 +263,7 @@ span {
   margin-right: 10px;
   padding: 15px;
   background: #d5f9ba;
-  border-radius: 5px;
+  border-radius: 8px;
   color: black;
 }
 .template span {
@@ -248,22 +273,46 @@ span {
   bottom: -12px;
   right: -30px;
 }
+
+/* MESSAGGIO */
 .messaggio.greeny {
   display: flex;
   justify-content: flex-end;
   padding: 5px 0;
+  position: relative;
+}
+.messaggio.white {
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px 0;
 }
 .messaggio.greeny p {
+  margin-left: 300px;
   margin-right: 10px;
-  padding: 15px;
+  padding: 15px 30px 15px 15px;
   background: #d5f9ba;
-  border-radius: 5px;
+  border-radius: 8px;
   color: black;
 }
 .messaggio.greeny p span {
   padding: 0 20px;
   font-size: 0.8em;
+  position: absolute;
+  bottom: 6px;
+  right: -5px;
+}
+.messaggio.white p {
+  margin-left: 10px;
+  margin-right: 300px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  color: black;
+}
+.messaggio.white p span {
+  padding: 0 20px;
+  font-size: 0.8em;
   position: relative;
-  bottom: -12px;
-  right: -30px;
+  bottom: -10px;
+  right: -28px;
 }
