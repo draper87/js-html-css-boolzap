@@ -69,13 +69,15 @@ $(document).ready(function() {
 
     // Funzione che cerca il nome del contatto quando lo scrivo all interno del input del tag .find
     function cercaUtente() {
-      var valoreInput = $('.find-wrapper input').val();
-      // var valoreDaTrovare = $('.contatto .contatto-nome').children('h4').text();
-      $('.contatti contatto').each(function() {
-        var valoreInput = $('.find-wrapper input').val();
-        if (valoreInput === $(this).find('h4').text()) {
-          $('.contatti contatto').addClass('tonotshow');
+      $('.contatti .contatto').each(function() {
+        var valoreInput = $('.find-wrapper input').val().toLowerCase();
+        if ( valoreInput != "" && $(this).find('h4').text().toLowerCase().includes(valoreInput)) {
+          console.log($(this).find('h4').text());
+          $('.contatti .contatto').addClass('tonotshow');
           $(this).removeClass('tonotshow');
+        }
+        else if ($('.find-wrapper input').val() == '') {
+          $('.contatti .contatto').removeClass('tonotshow');
         }
 
       })
