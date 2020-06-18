@@ -69,7 +69,7 @@ span {
 }
 .left {
   width: 35%;
-  min-width: 300px;
+  min-width: 350px;
 }
 .right {
   width: 65%;
@@ -144,7 +144,7 @@ span {
 .contatti {
   height: calc(100% - 190px);
   background: white;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 .contatti .contatto .avatar {
   padding-left: 5px;
@@ -233,62 +233,26 @@ span {
 .send {
   padding-right: 10px;
 }
-
-
 /* TEMPLATE */
 .tonotshow {
   display: none;
 }
-.template.white {
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px 0;
-}
-.template.greeny {
-  display: flex;
-  justify-content: flex-end;
-  padding: 5px 0;
-}
-.template.white p {
-  margin-left: 10px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  color: black;
-}
-.template span {
-  padding: 0 20px;
-  font-size: 0.8em;
-  position: relative;
-  bottom: -12px;
-  right: -30px;
-}
-.template.greeny p {
-  margin-right: 10px;
-  padding: 15px;
-  background: #d5f9ba;
-  border-radius: 8px;
-  color: black;
-}
-.template span {
-  padding: 0 20px;
-  font-size: 0.8em;
-  position: relative;
-  bottom: -12px;
-  right: -30px;
-}
-
 /* MESSAGGIO */
-.messaggio.greeny {
-  display: flex;
-  justify-content: flex-end;
-  padding: 5px 0;
+.messaggio {
+  cursor: pointer;
   position: relative;
+  padding: 5px 0;
+}
+.messaggio:after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.messaggio.greeny {
+  float: right;
 }
 .messaggio.white {
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px 0;
+  float: left;
 }
 .messaggio.greeny p {
   margin-left: 300px;
@@ -319,4 +283,29 @@ span {
   position: relative;
   bottom: -10px;
   right: -28px;
+}
+
+/* DROPDOWN */
+.dropdown {
+  white-space: nowrap; /* impedisce alle scritte nei dropdown menu di andare a capo */
+  position: absolute;
+  padding: 0 20px;
+  box-shadow: -1px 11px 20px -15px rgba(0,0,0,0.75);
+  background: white;
+  display: none;
+}
+.dropdown.vedi {
+  display: block;
+}
+.greeny .dropdown {
+  top: 100%;
+  right: 0%;
+}
+.white .dropdown {
+  top: 100%;
+  left: 0;
+}
+.dropdown li {
+  text-align: center;
+  padding: 6px 0;
 }

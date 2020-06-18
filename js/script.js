@@ -31,6 +31,21 @@ $(document).ready(function() {
     })
   })
 
+  // cliccando sul messaggio appare un menu a tendina
+  $(document).on('click', '.messaggio',
+    function() {
+      $(this).children('.dropdown').toggleClass('vedi');
+      $(this).siblings().children('.dropdown').removeClass('vedi');
+    }
+  )
+
+
+  // cliccando su Cancella messaggio il messaggio viene rimosso dalla cronologia chat
+  $(document).on('click', '.cancella',
+    function() {
+      $(this).parents('.messaggio').remove();
+    }
+  )
 
 
   // Cliccando sul contatto scelto viene mostrata la relativa chat
@@ -52,8 +67,8 @@ $(document).ready(function() {
       template.children('p').prepend(mioValore);
       template.find('span').text(oraCorrente);
       template.addClass('greeny');
-      $('.main-chat').append(template);
-      $('.main-chat').scrollTop($('.main-chat').height());
+      $('.main-chat .single-chat.active').append(template);
+      $('.main-chat').scrollTop($('.main-chat').prop('scrollHeight'));
       $('input').val('');
 
       // Ottengo 'Ok' come risposta ogni volta che scrivo qualcosa in chat
@@ -63,8 +78,8 @@ $(document).ready(function() {
         templateWhite.children('p').prepend(valoreWhite);
         templateWhite.find('span').text(ora + ':' + minuti);
         templateWhite.addClass('white');
-        $('.main-chat').append(templateWhite);
-        $('.main-chat').scrollTop($('.main-chat').height());
+        $('.main-chat .single-chat.active').append(templateWhite);
+        $('.main-chat').scrollTop($('.main-chat').prop('scrollHeight'));
       }, 1000);
     }
 }
@@ -75,6 +90,5 @@ $(document).ready(function() {
       }
       return numero;
     }
-
 
 })
