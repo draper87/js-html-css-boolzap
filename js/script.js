@@ -16,10 +16,19 @@ $(document).ready(function() {
   })
 
   // Scrivo il nome di un contatto e me lo restituisce tra la lista dei contatti
-  $('.find-wrapper input').keypress(function(event) {
-    if (event.which === 13 ) {
-      cercaUtente();
-    }
+  $('.find-wrapper input').keyup(function() {
+    var valoreInput = $(this).val().toLowerCase();
+    var allContatti = $('.contatti .contatto');
+
+    allContatti.each(function() {
+      var nomeContatto = $(this).find('h4').text().toLowerCase();
+      if (nomeContatto.includes(valoreInput)) {
+        $(this).show();
+      }
+      else {
+        $(this).hide();
+      }
+    })
   })
 
 
@@ -67,20 +76,5 @@ $(document).ready(function() {
       return numero;
     }
 
-    // Funzione che cerca il nome del contatto quando lo scrivo all interno del input del tag .find
-    function cercaUtente() {
-      $('.contatti .contatto').each(function() {
-        var valoreInput = $('.find-wrapper input').val().toLowerCase();
-        if ( valoreInput != "" && $(this).find('h4').text().toLowerCase().includes(valoreInput)) {
-          console.log($(this).find('h4').text());
-          $('.contatti .contatto').addClass('tonotshow');
-          $(this).removeClass('tonotshow');
-        }
-        else if ($('.find-wrapper input').val() == '') {
-          $('.contatti .contatto').removeClass('tonotshow');
-        }
-
-      })
-    }
 
 })
