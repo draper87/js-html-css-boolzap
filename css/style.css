@@ -146,7 +146,7 @@ span {
   background: white;
   overflow-y: scroll;
 }
-.contatti .contatto .avatar {
+.contatti .singolo-contatto .avatar {
   padding-left: 5px;
 }
 .right-nav ul {
@@ -157,14 +157,17 @@ span {
   line-height: 70px;
   padding: 0 10px;
 }
-.contatto {
+.singolo-contatto {
   height: 70px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 }
-.contatti .contatto {
+.singolo-contatto.selezionato {
+  background-color: lightgrey;
+}
+.contatti .singolo-contatto {
   height: 78px;
   border-bottom: 1px solid #eaeaea;
 }
@@ -242,11 +245,7 @@ span {
   cursor: pointer;
   position: relative;
   padding: 5px 0;
-}
-.messaggio:after{
-  content: "";
   clear: both;
-  display: table;
 }
 .messaggio.greeny {
   float: right;
@@ -254,35 +253,34 @@ span {
 .messaggio.white {
   float: left;
 }
-.messaggio.greeny p {
-  margin-left: 300px;
-  margin-right: 10px;
-  padding: 15px 30px 15px 15px;
-  background: #d5f9ba;
-  border-radius: 8px;
+.messaggio p {
   color: black;
+  padding: 15px 50px 15px 15px;
+  border-radius: 8px;
 }
-.messaggio.greeny p span {
+.messaggio.greeny p {
+  background: #d5f9ba;
+}
+.messaggio.white p {
+  background: white;
+}
+.messaggio p span {
   padding: 0 20px;
   font-size: 0.8em;
   position: absolute;
   bottom: 6px;
-  right: -5px;
+  right: -15px;
 }
-.messaggio.white p {
-  margin-left: 10px;
-  margin-right: 300px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  color: black;
+.messaggio i {
+  display: none;
+  position: absolute;
+  bottom: 6px;
+  right: 40px;
+  font-size: 0.7em;
+  color: #878d8f;
 }
-.messaggio.white p span {
-  padding: 0 20px;
-  font-size: 0.8em;
-  position: relative;
-  bottom: -10px;
-  right: -28px;
+.messaggio:hover i {
+  display: inline;
 }
 
 /* DROPDOWN */

@@ -18,7 +18,7 @@ $(document).ready(function() {
   // Scrivo il nome di un contatto e me lo restituisce tra la lista dei contatti
   $('.find-wrapper input').keyup(function() {
     var valoreInput = $(this).val().toLowerCase();
-    var allContatti = $('.contatti .contatto');
+    var allContatti = $('.contatti .singolo-contatto');
 
     allContatti.each(function() {
       var nomeContatto = $(this).find('h4').text().toLowerCase();
@@ -49,9 +49,21 @@ $(document).ready(function() {
 
 
   // Cliccando sul contatto scelto viene mostrata la relativa chat
-  $(document).on('click', '.contatti .contatto',
+  $(document).on('click', '.contatti .singolo-contatto',
     function() {
-     // codice
+     var dataContact = $(this).attr('data-contact');
+     var immagine = $(this).find('img').attr('src');
+     var nomeAttuale = $(this).find('h4').text();
+     console.log(immagine);
+     console.log(dataContact);
+     $(this).siblings().removeClass('selezionato');
+     $(this).addClass('selezionato');
+     var selettoreChat = '.single-chat[data-chat="' + dataContact + '"]';
+     console.log(selettoreChat);
+     $(selettoreChat).siblings().removeClass('active');
+     $(selettoreChat).addClass('active');
+     $('.attuale').find('img').attr('src', immagine);
+     $('.attuale').find('h4').text(nomeAttuale);
     }
   )
 
