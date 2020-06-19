@@ -9,7 +9,7 @@ $(document).ready(function() {
   )
 
   // Premendo il tasto Invio viene aggiunto un messaggio verde
-  $('.text input').keypress(function(event) {
+  $('.inviotesto input').keypress(function(event) {
     if (event.which === 13 ) {
       scriviMessaggio();
     }
@@ -48,11 +48,11 @@ $(document).ready(function() {
   )
 
   // quando faccio il focus sul input di scrivi messaggio deve comparire/scomparire l icona microfono
-  $('.write-chat .text input').focusin(function() {
+  $('.write-chat .inviotesto input').focusin(function() {
     $('.send i').removeClass('fa-paper-plane').addClass('fa-microphone');
   })
 
-  $('.write-chat .text input').focusout(function() {
+  $('.write-chat .inviotesto input').focusout(function() {
     $('.send i').removeClass('fa-microphone').addClass('fa-paper-plane');
   })
 
@@ -88,18 +88,28 @@ $(document).ready(function() {
 
   // Funzione che aggiunge il messaggio verde e restituisce il messaggio bianco con scritto ok
   function scriviMessaggio() {
+    // clono il codice html del mio modello per i messaggi della chat
     var template = $('.tonotshow .messaggio').clone();
-    var mioValore = $('.text input').val();
+
+    // prendo il valore del messaggio scritto dall utente
+    var mioValore = $('.inviotesto input').val();
+
+    // Creo delle variabili per il timestamp
     var orario = new Date();
     var ora = orario.getHours();
     var minuti = orario.getMinutes();
     var oraCorrente = aggiungiZero(ora) + ':' + aggiungiZero(minuti);
+
+    // Se il messaggio è diverso da '' allora procedere al invio del messaggio
     if (mioValore != '') {
       template.children('p').prepend(mioValore);
       template.find('span').text(oraCorrente);
       template.addClass('greeny');
       $('.main-chat .single-chat.active').append(template);
+
+      // funzione che permette di scrollare in giu automaticamente la finestra della chat
       $('.main-chat').scrollTop($('.main-chat').prop('scrollHeight'));
+      // svuoto il valore dell input
       $('input').val('');
 
       // Ottengo 'Ok' come risposta ogni volta che scrivo qualcosa in chat dopo un intervallo di 1 secondo
@@ -116,7 +126,7 @@ $(document).ready(function() {
 }
     // Funzione che corregge il formato orario 00:00
     function aggiungiZero(numero) {
-      if (numero < 10) {
+      if (numero < 10) { // se il numero restituito è inferiore a 10 allora aggiungiamo il numero 0 davanti
         return '0' + numero;
       }
       return numero;
