@@ -20,6 +20,7 @@ $(document).ready(function() {
     var valoreInput = $(this).val().toLowerCase();
     var allContatti = $('.contatti .singolo-contatto');
 
+    // eseguo ciclo each per verificare ogni contatto
     allContatti.each(function() {
       var nomeContatto = $(this).find('h4').text().toLowerCase();
       if (nomeContatto.includes(valoreInput)) {
@@ -39,7 +40,6 @@ $(document).ready(function() {
     }
   )
 
-
   // cliccando su Cancella messaggio il messaggio viene rimosso dalla cronologia chat
   $(document).on('click', '.cancella',
     function() {
@@ -47,21 +47,40 @@ $(document).ready(function() {
     }
   )
 
+  // quando faccio il focus sul input di scrivi messaggio deve comparire/scomparire l icona microfono
+  $('.write-chat .text input').focusin(function() {
+    $('.send i').removeClass('fa-paper-plane').addClass('fa-microphone');
+  })
+
+  $('.write-chat .text input').focusout(function() {
+    $('.send i').removeClass('fa-microphone').addClass('fa-paper-plane');
+  })
+
 
   // Cliccando sul contatto scelto viene mostrata la relativa chat
   $(document).on('click', '.contatti .singolo-contatto',
     function() {
+     // prendo l attributo data-contact del selettore
      var dataContact = $(this).attr('data-contact');
+     // prendo il link all immagine del contatto scelto e relativo nome
      var immagine = $(this).find('img').attr('src');
      var nomeAttuale = $(this).find('h4').text();
-     console.log(immagine);
-     console.log(dataContact);
-     $(this).siblings().removeClass('selezionato');
-     $(this).addClass('selezionato');
+
+     // rimuovo la classe "evidenzia in grigio" a tutti i selettori fratelli di quello selezionato
+     $(this).siblings().removeClass('evidenziaGrigio');
+     // aggiungo la classe evidenzia in grigio al nostro selettore
+     $(this).addClass('evidenziaGrigio');
+
+     // creo variabile che linka al selettore collegato al contatto da noi cliccato
      var selettoreChat = '.single-chat[data-chat="' + dataContact + '"]';
-     console.log(selettoreChat);
+
+     // vado a rimuovere la classe active a tutti i fratelli della chat collegata al contatto clicatto
      $(selettoreChat).siblings().removeClass('active');
+
+     // vado ad aggiungere la classe active alla chat collegata al contatto clicatto
      $(selettoreChat).addClass('active');
+
+     // vado ad aggiungere avatar e nome nel header della chat
      $('.attuale').find('img').attr('src', immagine);
      $('.attuale').find('h4').text(nomeAttuale);
     }
@@ -83,14 +102,14 @@ $(document).ready(function() {
       $('.main-chat').scrollTop($('.main-chat').prop('scrollHeight'));
       $('input').val('');
 
-      // Ottengo 'Ok' come risposta ogni volta che scrivo qualcosa in chat
+      // Ottengo 'Ok' come risposta ogni volta che scrivo qualcosa in chat dopo un intervallo di 1 secondo
       setTimeout(function() {
-        var templateWhite = $('.tonotshow .messaggio').clone();
+        template = $('.tonotshow .messaggio').clone();
         var valoreWhite = 'ok';
-        templateWhite.children('p').prepend(valoreWhite);
-        templateWhite.find('span').text(ora + ':' + minuti);
-        templateWhite.addClass('white');
-        $('.main-chat .single-chat.active').append(templateWhite);
+        template.children('p').prepend(valoreWhite);
+        template.find('span').text(oraCorrente);
+        template.addClass('white');
+        $('.main-chat .single-chat.active').append(template);
         $('.main-chat').scrollTop($('.main-chat').prop('scrollHeight'));
       }, 1000);
     }

@@ -73,6 +73,7 @@ span {
 }
 .right {
   width: 65%;
+  min-width: 400px;
 }
 /* LEFT COLUMN */
 /* Profilo */
@@ -164,7 +165,7 @@ span {
   align-items: center;
   cursor: pointer;
 }
-.singolo-contatto.selezionato {
+.singolo-contatto.evidenziaGrigio {
   background-color: lightgrey;
 }
 .contatti .singolo-contatto {
@@ -249,13 +250,14 @@ span {
 }
 .messaggio.greeny {
   float: right;
+  margin-left: 40%;
 }
 .messaggio.white {
   float: left;
 }
 .messaggio p {
   color: black;
-  padding: 15px 50px 15px 15px;
+  padding: 15px 55px 15px 15px;
   border-radius: 8px;
 }
 .messaggio.greeny p {
