@@ -1,21 +1,20 @@
-// 1 funzione, dobbiamo aggiungere un messaggio verde quando scriviamo qualcosa all interno dell input e premiamo il tasto Invio/icona
 $(document).ready(function() {
 
-  // Cliccando l icona viene aggiunto un messaggio verde
+  // Cliccando l icona viene aggiunto un messaggio
   $(document).on('click', '.send i',
     function() {
       scriviMessaggio();
     }
   )
 
-  // Premendo il tasto Invio viene aggiunto un messaggio verde
+  // Premendo il tasto Invio viene aggiunto un messaggio
   $('.inviotesto input').keypress(function(event) {
     if (event.which === 13 ) {
       scriviMessaggio();
     }
   })
 
-  // Scrivo il nome di un contatto e me lo restituisce tra la lista dei contatti
+  // Scrivo il nome di un contatto nel campo ricerca e me lo restituisce tra la lista dei contatti
   $('.find-wrapper input').keyup(function() {
     var valoreInput = $(this).val().toLowerCase();
     var allContatti = $('.contatti .singolo-contatto');
